@@ -3,7 +3,7 @@ module.exports = {
         {
             "method": "GET",
             "path": "/quizzes-with-all-info",
-            "handler": "quiz.customFind"
+            "handler": "quiz.customFindAll"
           }
     ]
 }
