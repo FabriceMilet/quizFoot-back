@@ -71,6 +71,10 @@
       "relation": "manyToMany",
       "target": "api::quiz.quiz",
       "mappedBy": "users_permissions_users"
+    },
+    "result": {
+      "type": "integer",
+      "default": 0
     }
   }
 }

@@ -11,7 +11,7 @@ module.exports = createCoreController('api::quiz.quiz', ({strapi}) => ({
         
         try {   
         const quizzes = await strapi.db.query('api::quiz.quiz').findMany({ 
-          populate: { category: true, players : true, level: true, teams :true},
+          populate: { category: true, players : true, level: true, teams :true, users_permissions_users:true},
         });
         const quizzesWithRelations = quizzes.map(quiz => ({
           ...quiz,
@@ -27,6 +27,10 @@ module.exports = createCoreController('api::quiz.quiz', ({strapi}) => ({
           teams: quiz.teams?.map(team => ({
             id: team.id,
             name: team.name
+          })),
+          users_permissions_users : quiz.users_permissions_users?.map(user => ({
+            id: user.id,
+            name: user.username
           })),
           level: {
             id: quiz.level.id,
